@@ -23,7 +23,7 @@ require_once '../common/inc/sys/Template.inc';
 
 $connections = array(
     'development' => 'mysql://root:test@localhost/dev_intranet?charset="utf8',
-    'production' => 'mysql://user_f657b901:IdZ&)t%az^mqEF@a.db.shared.orchestra.io/db_f657b901?charset="utf8'
+    'production' => 'mysql://user_9a66987e:oAYpoB3)tgrrBa@a.db.shared.orchestra.io/db_9a66987e?charset="utf8'
 );
 
 ActiveRecord\Config::initialize(function($cfg) use ($connections) {
