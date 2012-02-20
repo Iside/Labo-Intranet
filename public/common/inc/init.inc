@@ -1,7 +1,7 @@
 <?php
 // <editor-fold defaultstate="collapsed" desc="set global variable">
-//define('Environment', 'production');
-define('Environment', 'development');
+define('Environment', 'production');
+//define('Environment', 'development');
 Environment == 'development' ? define("SITE_PATH", '/public/') : define("SITE_PATH", '/');
 define("SYS_PATH", '../common/inc/');
 define("VIEW_PATH", '../views');
