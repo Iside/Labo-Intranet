@@ -52,7 +52,7 @@
 
 
 
-#background { opacity: 0.9; min-height: 700px; position: relative; }
+#background { min-height: 700px; position: relative; background: #f2f1e6 }
 #bg-user { 
   width: 100%;
   min-height: 700px;
@@ -61,14 +61,16 @@
   background-size: cover;
   background-attachment: fixed;
   background-image: url("http://sophiemathieu.fr/WordPress3/wp-content/uploads/2011/06/42-24287605.jpg");
+  display: none;
 }
 #bg-liner {
   width: 100%;
-  background-image: url("img/bg-liner.png");
+  background-image: url("../img/bg-liner.png");
   background-repeat: repeat;
   min-height: 700px;
   position: absolute;
   top: 0px;
+  opacity: 0.4
 }
 #doc { position: absolute; top: 0; width: 100%; color: #777 }
 #content { position: relative; }
@@ -76,32 +78,43 @@
 #header div, #header p { line-height: 56px; }
 
 .full { width: 940px; margin: 0 auto; }
-.header-colors { background-image: url("img/bg-colors.jpg"); height: 4px; }
+.header-colors { background-image: url("../img/bg-colors.jpg"); height: 4px; }
 .text-right { text-align: right; }
 .text-center { text-align: center; }
 .marginauto { margin: 0 auto; }
 .fl { float: left!important; }
 .fr { float: right!important; }
+.fn { float: none!important; }
 .nomargin { margin: 0!important; }
 .text-shadow { text-shadow: 0 1px 0 #FFF; }
 .text-shadow:hover { }
-
+.lighter { font-weight: 300!important; }
+.nowrap { white-space: nowrap; }
+.lineheight18 { line-height: 18px; }
 #main { padding-top: 50px; }
 .box { 
   background: #FFF;
-  border: 1px solid #E3E3E3;
-  
+  border: 1px solid #D1D1D1;
+  .border-radius(5px);
   /*border-bottom: 2px solid #DFDFDF;*/
   box-shadow: 0 1px 0 rgba(0,0,0,0.1);
   margin-bottom: 15px;
 }
 
 .rounded-border { .border-radius(5px); }
+.padding3 { padding: 3px; }
+.padding5 { padding: 5px; }
 .padding10 { padding: 10px; }
 .padding15 { padding: 15px; }
 .padding30 { padding: 30px; }
+.padding50 { padding: 50px!important; }
+.container-fluid { padding-right: 125px!important; padding-left: 125px!important; padding-bottom: 100px!important; }
 .nopaddingtop { padding-top: 0; }
+.nopadding { padding: 0!important; }
 .nopaddingbottom { padding-bottom: 0; }
+.nomarginbottom { margin-bottom: 0!important; }
+.marginbottom5 { margin-bottom: 5px!important; }
+.nav-list .nav-header { padding: 10px 25px!important; }
 
 .titre-lighter { 
   font-size: 20px;
@@ -163,6 +176,180 @@ th.members { width: 80px; }
 th.status { width: 80px; }
 th.activity { }
 tr.finish, tr.finish a, tr.finish a:hover { background: #F4F4F4; color: #CCC; text-decoration: none; cursor: default }
+
+.list-contact { margin : 0 }
+.list-contact li { 
+  list-style: none; 
+  display: block;
+  line-height: 30px;
+  height: 29px;  
+  padding: 1px 10px;
+  cursor: pointer;
+}
+.list-contact li:hover { background: #EAEAEA; }
+.list-contact li span { white-space: nowrap; vertical-align: text-bottom; }
+.list-contact li img { 
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  .border-radius(1000px);
+}
+
+
+
+
+.nav-tabs { position: relative; top: 1px;background: rgba(255,255,255,0.8); }
+
+
+/* Chat
+------------------------- */
+
+.notifications-number {     
+  background: #dc7585;
+  display: inline;
+  padding: 1px 4px;
+  color: #FFF;
+  text-shadow: 0 0 0 transparent;
+  font-size: 10px;
+  margin-left: 3px;
+}
+
+.notifications-simple { font-weight: bold; color: #dc7585 } 
+
+#chat { 
+  border: 1px solid #D1D1D1;
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1)!important; 
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1)!important;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1)!important; 
+  .icon-remove { opacity: 0.4; cursor: pointer; }
+  .nav-list .nav-header { line-height: 20px!important; } 
+  #chat-user { background: #EEE; border-top: 1px solid #fff }
+  #chat-contacts { height: 200px; overflow-y: auto;  overflow-x: hidden; padding: 5px 0;border-top: 1px solid #EEE; border-bottom: 1px solid #E1E1E1; }
+  #chat-dialogg { height: 100px; overflow-y: auto;  overflow-x: hidden; background: #fff;border-bottom: 1px solid #E1E1E1; }
+  #chat-composer { 
+    border-top: 1px solid #fff;
+    input { width: 96%; }
+  }
+  #chat-title { cursor: pointer; }
+}
+
+
+/* Profil
+------------------------- */
+
+#user-profil { 
+  img { max-width: 140px; }
+  .span3 { }
+} 
+.user-info { 
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #EEE;
+  p { margin-bottom: 5px!important; }
+  .line-extra-info { 
+    i { opacity: 0.4; }
+    a { color: #777; }
+    span { margin-right: 30px; display: inline-block; padding-bottom: 6px; white-space: nowrap; }
+  } 
+  .follow { 
+    position: absolute;
+    right: 0;
+    top: 0;
+    .btn { font-weight: bold; }
+  }
+}
+.user-stats {
+  .row-fluid { padding-top: 11px; }
+  .stat { 
+    display: block;
+    padding: 15px 0 12px;
+    border-radius: 5px;
+    color: #777; text-decoration: none;
+    &:hover { background: #F4F4F4; }
+  }
+  p {     
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #444;
+  }
+}
+
+
+.nav-tabs.nav-stacked > li > a { 
+  padding-top: 15px!important;
+  padding-bottom: 15px!important;
+  border: 1px solid #D1D1D1!important;
+  font-size: 14px;
+} 
+.nav-stacked {
+  margin-top: -1px;
+  .box-shadow(0 2px 0 rgba(0,0,0,0.1)); border-radius: 5px;
+  background: #F7F7F7;
+  li {
+    a { 
+      border-left: 2px solid transparent; color: #777;     
+      &:hover { 
+        background: #FFF!important;
+        i { 
+          opacity: 1; 
+        }    
+      }
+    }
+    i { 
+      opacity: 0.4; position: absolute;
+      right: 10px;
+    }
+    
+  }
+  li.active {
+    a { border-left: 3px solid #CCC!important; }
+    font-weight: bold;
+    i { opacity: 1; }
+  }
+}
+
+
+/* Question
+------------------------- */
+
+#question { 
+ .control-label { color: #777!important; font-size: 16px; }
+ input, textarea { width: 77%; }
+}
+
+
+
+
+/* Question
+------------------------- */
+
+#members {
+  td {
+    vertical-align: middle;
+  }
+  .image, .image img { max-width: 32px; width: 32px; }
+  .name { width: 200px; }
+  .points { width: 60px; }
+  .projets { width: 250px; }
+  .link { width: 60px; }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 
@@ -240,6 +427,41 @@ tr.finish, tr.finish a, tr.finish a:hover { background: #F4F4F4; color: #CCC; te
      -moz-border-radius: 0 0 4px 4px;
           border-radius: 0 0 4px 4px;
 }
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .nav li {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+  .nav li a { border: 0; }
+  
+  .nav-tabs > li { margin-bottom: 2px!important; }
+  .nav-tabs > li.active > a {
+    .border-radius(4px);
+    border: 1px solid #DDD!important;
+  }
+  .nav-tabs > li.active > a:hover {
+    border: 1px solid #DDD!important;
+  }  
+  .nav-tabs > li > a:hover {
+    .border-radius(4px);
+    border: 1px solid transparent!important;
+  }
+  
+  .container-fluid { padding-right: 20px!important; padding-left: 20px!important; padding-bottom: 20px!important; }
+}
+
 
 /* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
 @media (min-width: 980px) {

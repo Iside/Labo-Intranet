@@ -9,7 +9,7 @@ define("LOAD_PATH", '../load');
 define("WP_INC_PATH", '../blog/wp_includes/');
 define("IMG_PATH", '../common/img/');
 define("MODEL_PATH", '../common/inc/models');
-define("SiteName", 'Labo-Robotique');
+define("SiteName", 'Intranet');
 define("JS_PATH", '../common/js');
 define("CSS_PATH", '../common/css');
 setlocale(LC_ALL, 'fr_FR');

@@ -33,9 +33,9 @@ class Template {
    * Vous pouvez mettre nul ici pour ne pas décorer le template comma valeur à begin. La vue sera chargé si elle existe.
    */
 
-  function useTemplate($begin=array('Home', true, true)) {
+  function useTemplate($begin=array('Home', true, true, ""), $end=array(true)) {
     if ($begin != null)
-      $this->Begin($begin[0], isset($begin[1]) ? $begin[1] : true, isset($begin[2]) ? $begin[2] : true );
+      $this->Begin($begin[0], isset($begin[1]) ? $begin[1] : true, isset($begin[2]) ? $begin[2] : true, $begin[3] );
     $paths = explode('/', $_SERVER['SCRIPT_NAME']);
     foreach (get_object_vars($this) as $key => $var) {
       global $$key;
@@ -46,7 +46,7 @@ class Template {
       include VIEW_PATH . '/' . $script;
     }
     if ($begin != null)
-      $this->Close();
+      $this->Close($end[0]);
   }
 
   function load($action, $args=array()) {
@@ -78,40 +78,40 @@ class Template {
     return;
   }
 
-  function Begin($title='Home', $layout=true, $showMenu=True) {
+  function Begin($title='Home', $layout=true, $showMenu=True, $infos="") {
     ?>
-
-
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="ISO-8859-1">
-        <title><?php print SiteName . " - " . $title ?></title>
-
-        <!-- Le styles -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SUPINFO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    
+    <!-- Le styles -->
         <?php
         if ($layout) {
           Dir::IncludeDirectory(CSS_PATH, 'css');
           Dir::IncludeDirectory(JS_PATH, 'js');
         }
         ?>
-      </head>
-      <div id="background" class="lazyHeight" style="opacity: 0.2">
-     <div id="bg-user" class="lazyHeight" style="display:none">
+  </head>
+  <body>
+    <div id="background" class="lazyHeight">
+     <div id="bg-user" class="lazyHeight">
       
      </div>
      <div id="bg-liner" class="lazyHeight">
       
      </div>      
     </div>
-      <?php if ($showMenu): ?>
-                <div id="doc" class="text-shadow">
+      
+<div id="doc" class="text-shadow">
       <div id="content">
         <div id="header">
             <div class="header-colors"></div>
             <div class="container-fluid text-right">
               <!-- SI NON CONNECTE -->
-              <a class="btn" href="connexion.html">Connexion</a> <a class="btn btn-success" href="inscription.html">Inscription</a>
+              <a class="btn btn-success" href="suscribe.php">Inscription</a>
               
               <!-- SI CONNECTE
               <a class="uiProfile nodeco" href="https://www.facebook.com/mangoberry?ref=tn_tnmn" title="Profil">
@@ -122,13 +122,14 @@ class Template {
             </div>
         </div>
         <div id="main" class="container-fluid">
-          
-          <div class="alert alert-info"><strong>Heads up!</strong> All javascript plugins require the latest version of jQuery.</div>
+          <?php                    if ($infos!=""):?>
+                      <div class="alert alert-info"><strong>Attention!</strong> <?php print $infos ?></div>
+          <?php endif;?>
           
           <div id="main-wrapper" class="row-fluid show-grid">
-            
-            <!-- CONNEXION -->
             <div class="span9">
+            <!-- CONNEXION -->
+              <?php if ($showMenu): ?>
               <div class="menu box">
                 <ul class="nav nav-pills">
                   <li><a href="" class="nodeco">Accueil</a></li>
@@ -139,88 +140,155 @@ class Template {
                 </ul>
               </div>
               <?php endif; ?>
-            
         <?php
         }
 
-        public
-
-        function Close() {
-          ?>
+        function Close($showChat=true) {?>
+        </div>
+          <?php if ($showChat):?>
                       <div class="span3">
-              <div id="chat-block" class="nomargin">
-                <div class="menu box" style="margin-bottom: 3px;">
-                  <ul class="nav nav-pills">
-                    <li><a href="" class="nodeco">Discussion</a></li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <div id="chat-contacts" style="height: 200px; overflow-y: auto">
-                    <ul class="padding10">
-                      <li>Thi Hong Hoa</li>
-                      <li>Osin</li>
-                      <li>Vincent</li>
-                      <li></li>
-                      <li></li>
-                      <li></li> 
-                      <li></li>
-                      <li></li>
-                      <li></li>   
-                      <li></li> 
-                      <li></li>
-                      <li></li>
-                      <li></li>                        
-                    </ul>
+              <div id="chat" class="well nopadding">
+                <ul id="chat-title" class="nav nav-list nopadding">
+                  <li class="nav-header"><i class="icon-comment"></i> Chat</li>
+                </ul>
+                <ul id="chat-content" class="nav nav-list list-contact nopadding">
+                  <div id="chat-contacts" style="">
+                      <li class="contact" data-name="Thi Hong Hoa">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Thi Hong Hoa</span> <span class="notifications-number">2</span>
+                      </li>
+                      <li class="contact" data-name="Mihanta">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Mihanta</span>
+                      </li>
+                      <li class="contact" data-name="Osin">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Osin</span>
+                      </li>
+                      <li class="contact" data-name="Vincent">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Vincent</span>
+                      </li>
+                      <li class="contact" data-name="Léa">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Léa</span>
+                      </li>
+                      <li class="contact" data-name="Nicolas">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Nicolas</span>
+                      </li>
+                      <li class="contact" data-name="Michael">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Michael</span>
+                      </li> 
+                      <li class="contact" data-name="Hugo">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Hugo</span>
+                      </li>
+                      <li class="contact" data-name="Kelly">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Kelly</span>
+                      </li>
+                      <li class="contact" data-name="Bob">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Bob</span>
+                      </li>
+                      <li class="contact" data-name="Guillaume">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Guillaume</span>
+                      </li>
+                      <li class="contact" data-name="Robert">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Robert</span>
+                      </li>
+                      <li class="contact" data-name="Georges">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Georges</span>
+                      </li>
+                      <li class="contact" data-name="Eddy">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Eddy</span>
+                      </li> 
+                      <li class="contact" data-name="Iony">
+                        <img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" />
+                        <span>Iony</span>
+                      </li>
                   </div>
-                  <div id="chat-composer" class="padding10" style="background: #EEE; border-top: 1px solid #D4D4D6">
-                    Vincent Bismuth
-                  </div>                  
-                  <div id="chat-message" style="height: 120px; overflow-y: auto"></div>
-                  <div id="chat-composer" class="padding10" style="border-top: 1px solid #D4D4D6">
-                    <input type="text" class="nomargin" id="input01" style="width: 96%;">
+                  <div id="chat-message">
+                    <div id="chat-user" class="padding5">
+                      <i class="icon-remove"></i> <span class="name">Vincent Bismuth</span>
+                    </div>                  
+                    <div id="chat-dialogg"></div>
+                    <div id="chat-composer" class="padding10">
+                      <input type="text" class="nomargin" id="input01">
+                    </div>
                   </div>
-                </div>                  
-              </div>
+                </ul>
+              </div>              
             </div>
             <!-- FIN CONNEXION -->
-            
-          </div>
-        </div>
+            <?php endif;?>
       </div>
     </div>
-
+      </div>
+</div>
+  
     <script type="text/javascript">
     $(document).ready(function() {
 
-      heighty ();
-      $(window).resize(function(){ heighty (); });      
-      //$(window).scroll(function(){ heighty (); });
-      
-      /*  
-      $(window).scroll(function(){
-          if ($(window).scrollTop() >= "94"){
-            $("#chat-block").addClass("span3").css("position","fixed").css("top","20px");
-          }
-          if ($(window).scrollTop() < "94"){
-            $("#chat-block").removeClass("span3").css("position","relative").css("top","0px");
-          } 
+      setTimeout('heighty()',1000);
+            
+      $("#chat-title").click(function(){ 
+        $("#chat-content").slideToggle("50","easeOutExpo");
       });
-      */
+ 
+      $("#chat-user .icon-remove").click(function(){ 
+        $("#chat-message").hide();
+        $("#chat-contacts").css("height","379px");
+      });
+      
+      $("#chat-contacts .contact").each(function(n){
+        $(this).bind("click",function(){
+          var name = $(this).data("name");
+          $("#chat-contacts").css("height","200px"); 
+          $("#chat-message").show();  
+          $("#chat-user .name").text(name);  
+        });
+      });
+      
+      $(window).scroll(function(){
+        if ($(window).scrollTop() >= "94" && $(window).width() > 968){
+          $("#chat").css({
+            "position" : "fixed",
+            "top" : "15px",
+            "width" : "238px"
+          });
+        }
+        if ($(window).scrollTop() < "94" && $(window).width() > 968){
+          $("#chat").css({
+            "position" : "relative",
+            "top" : "0px",
+            "width" : "238px"
+          });
+        }
+      });
+    
     });
+    
+    function scrollTo(top){
+      $('html, body').animate({scrollTop: top + "px" }, 200);
+    }
     
     function heighty () {
       $('.lazyHeight').each(function(n) { 
-        var documentHeight = $(document).height() + 100;
+        var documentHeight = $(document).height();
         $(this).css("height", documentHeight + "px");
       });
     }
     </script>
-    
-    
-  </body>
+    </body>
 </html>
     <?php
   }
-
 }
 ?>

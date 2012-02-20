@@ -34,5 +34,5 @@ $res->nb1 = rand(1, 5);
 $res->nb2 = rand(1, 5);
 $res->somme = $res->nb1 + $res->nb2;
 $res->captcha_crypted = md5($res->somme); 
-$res->useTemplate(array('Inscrire un client'));
+$res->useTemplate(array('Inscription', true, false, ""), array(false));
 ?>
