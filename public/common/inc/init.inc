@@ -34,11 +34,12 @@ ActiveRecord\Config::initialize(function($cfg) use ($connections) {
 # A fixer sur production lorsque le projet sera termine
             $cfg->set_default_connection(Environment);
         });
-session_name('LBIntranet');
+session_name('LBI');
 session_start();
 if (isset($_SESSION['user']))
     $user = $_SESSION['user'];
-
+else
+  session_destroy ();
 $res = Template::instance('template');
 // </editor-fold>
 ?>

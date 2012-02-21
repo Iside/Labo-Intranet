@@ -60,8 +60,7 @@ class Template {
       $count == count($args) ? $arguments .= "&amp;" : $arguments .="";
     }
     if (!preg_match('/', $action))
-      preg_match('.php', $action) ? header("location:" . SITE_PATH . 'load/' . $action . $arguments) : header("location:" . SITE_PATH . 'load/' . $action . '.php' . $arguments);
-    header("location:" . $action . $arguments);
+    header("location:" . SITE_PATH . 'load/' . $action . '.php' . $arguments);
   }
 
   function reload($action, $args=array()) {

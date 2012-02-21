@@ -3,7 +3,7 @@
 class User extends ActiveRecord\Model {
 
   static $validates_presence_of = array(
-      array('campus_id'), array('email'));
+      array('id'), array('password'));
 //  static $has_many = array(
 //      array('userprivileges'),
 //      array('privileges', 'throught' => 'userprivileges'));
