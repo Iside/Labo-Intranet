@@ -45,7 +45,7 @@ if (isset($_SESSION['user'])){
     $res->user = $user;
 }
 else{
-  if (!stripos($_SERVER['SCRIPT_NAME'], "index.php")) {
+  if (!stripos($_SERVER['SCRIPT_NAME'], "index.php") AND !stripos($_SERVER['SCRIPT_NAME'], "suscribe.php")) {
     $res->user = null;
     $res->load('index', array("signin" => 1));
   }
