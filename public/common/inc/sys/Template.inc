@@ -131,11 +131,11 @@ class Template {
               <?php if ($showMenu): ?>
               <div class="menu box">
                 <ul class="nav nav-pills">
-                  <li><a href="" class="nodeco">Accueil</a></li>
-                  <li><a href="" class="nodeco">Profil</a></li>
-                  <li class="selected"><a href="" class="nodeco">Activité</a></li>
-                  <li><a href="" class="nodeco">Membres</a></li>
-                  <li><a href="" class="nodeco">Questions</a></li>
+                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "accueil") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Accueil</a></li>
+                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "profil") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Profil</a></li>
+                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "activities") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Activités</a></li>
+                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "membres") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Membres</a></li>
+                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "questions") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Questions</a></li>
                 </ul>
               </div>
               <?php endif; ?>

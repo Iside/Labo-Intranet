@@ -12,7 +12,7 @@ if (isset($_POST['captcha']) && isset($_POST['vcaptcha'])) {
                             'password' => sha1($_POST['password']."h@Ck")
                         ));
                 $result = "user crée";
-                header("location:" . SITE_PATH . "/load/signin.php");
+                $res->load("index");
           }
         }
         else

@@ -1,7 +1,7 @@
 <div class="box padding15">
                 <div class="row-fluid">
                     <form class="form-search nomargin">
-                      <input type="text" placeholder="Rechercher un membre du laboratoire" class="input-medium search-query" style="width: 50%; margin-right: 10px">   
+                      <input type="text" placeholder="Rechercher un membre" class="input-medium search-query" style="width: 50%; margin-right: 10px">   
                       <label class="checkbox inline">
                         <input type="checkbox" id="inlineCheckbox1" value="option1"> Pays
                       </label>
@@ -19,10 +19,10 @@
               <div class="box padding30">
                 <div class="row-fluid">
                   <div class="span12">
-                    <h2 class="lighter">Membres du Laboratoire Cisco</h2>
+                    <h2 class="lighter"><?=User::count()?>&nbsp;Membres dans <?php print Company::first()->sexe > 0 ? 'la' : 'le' ?>&nbsp;<?=Company::first()->name?> </h2>
                     <p></p>
                     <table id="members" class="table">
-                      <!--
+                      
                       <thead>
                         <tr>
                           <th class="name">Nom de l'évènement</th>
@@ -31,114 +31,9 @@
                           <th class="activity">Activité</th>
                         </tr>
                       </thead>
-                      -->
+                      
                       <tbody>
                         <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>                    
-                        <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr class="">
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>                    
-                        <tr class="">
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr class="">
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>                    
-                        <tr class="">
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr class="">
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>
-                        <tr>
-                          <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
-                          <td class="points">100</td>
-                          <td class="projets">Projet d'excellence</td>
-                          <td class="link"><a href="profil.html">Voir</a></td>
-                        </tr>                    
-                        <tr class="">
                           <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
                           <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
                           <td class="points">100</td>

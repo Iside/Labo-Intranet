@@ -34,12 +34,16 @@ ActiveRecord\Config::initialize(function($cfg) use ($connections) {
 # A fixer sur production lorsque le projet sera termine
             $cfg->set_default_connection(Environment);
         });
+
+$res = Template::instance('template');
 session_name('LBI');
 session_start();
 if (isset($_SESSION['user']))
     $user = $_SESSION['user'];
-else
-  session_destroy ();
-$res = Template::instance('template');
+else{
+  if (!stripos($_SERVER['SCRIPT_NAME'], "index.php")) {
+    $res->load('index', array("signin" => 1));
+  }
+}
 // </editor-fold>
 ?>
