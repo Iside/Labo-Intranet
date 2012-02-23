@@ -1,5 +1,4 @@
-<?php
-
+<?
 class Template {
 
   private static $instances = array();
@@ -87,7 +86,7 @@ class Template {
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     
     <!-- Le styles -->
-        <?php
+        <?
         if ($layout) {
           Dir::IncludeDirectory(CSS_PATH, 'css');
           Dir::IncludeDirectory(JS_PATH, 'js');
@@ -109,25 +108,25 @@ class Template {
         <div id="header">
             <div class="header-colors"></div>
             <div class="container-fluid text-right">
-              <?php if (isset($this->user)):?>
+              <?if (isset($this->user)):?>
               <a class="uiProfile nodeco" href="https://www.facebook.com/mangoberry?ref=tn_tnmn" title="Profil">
                 <img class="uiProfilePhoto" width="32" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/48769_770534613_1336862317_q.jpg" alt="">
                 <span class="lien uiName nodeco"><?=$this->user->id?></span>
               </a>
-              <?php else: ?>
+              <?else: ?>
               <a class="btn btn-success" href="suscribe.php">Inscription</a>
-              <?php endif;?>
+              <?endif;?>
             </div>
         </div>
         <div id="main" class="container-fluid">
-          <?php                    if ($infos!=""):?>
-                      <div class="alert alert-info"><strong>Attention!</strong> <?php print $infos ?></div>
-          <?php endif;?>
+          <?                    if ($infos!=""):?>
+                      <div class="alert alert-info"><strong>Attention!</strong> <?=$infos?></div>
+          <?endif;?>
           
           <div id="main-wrapper" class="row-fluid show-grid">
             <div class="span9">
             <!-- CONNEXION -->
-              <?php if ($showMenu): ?>
+              <?if ($showMenu): ?>
               <div class="menu box">
                 <ul class="nav nav-pills">
                   <li <?=stripos($_SERVER['SCRIPT_NAME'], "accueil") ? 'class="selected"' : '' ?>><a href="<?=$this->asLink("accueil")?>" class="nodeco">Accueil</a></li>
@@ -137,13 +136,13 @@ class Template {
                   <li <?=stripos($_SERVER['SCRIPT_NAME'], "questions") ? 'class="selected"' : '' ?>><a href="<?=$this->asLink("questions")?>" class="nodeco">Questions</a></li>
                 </ul>
               </div>
-              <?php endif; ?>
-        <?php
+              <?endif; ?>
+        <?
         }
 
         function Close($showChat=true) {?>
         </div>
-          <?php if ($showChat):?>
+          <? if ($showChat):?>
                       <div class="span3">
               <div id="chat" class="well nopadding">
                 <ul id="chat-title" class="nav nav-list nopadding">
@@ -225,12 +224,12 @@ class Template {
               </div>              
             </div>
             <!-- FIN CONNEXION -->
-            <?php endif;?>
+            <? endif;?>
       </div>
     </div>
       </div>
 </div>
-  
+<? if ($showChat):?>
     <script type="text/javascript">
     $(document).ready(function() {
 
@@ -284,9 +283,10 @@ class Template {
       });
     }
     </script>
+<?endif;?>
     </body>
 </html>
-    <?php
+    <?
   }
 }
 ?>
