@@ -67,13 +67,13 @@ class Template {
     $this->load($_SERVER['SCRIPT_NAME'], $args);
   }
 
-  public static function asLink($action="") {
-    if ($action == "")
+  public static function asLink($page="") {
+    if ($page == "")
       return;
-    if (is_file(LOAD_PATH . '/' . $action .'.php'))
-      return LOAD_PATH . '/' . $action .'.php';
-    elseif ((is_file(VIEW_PATH . '/' . $action .'.php')))
-      return VIEW_PATH . '/' . $action .'.php';
+    if (is_file(LOAD_PATH . '/' . $page .'.php'))
+      return LOAD_PATH . '/' . $page .'.php';
+    elseif ((is_file(VIEW_PATH . '/' . $page .'.php')))
+      return VIEW_PATH . '/' . $page .'.php';
     return;
   }
 
@@ -109,15 +109,14 @@ class Template {
         <div id="header">
             <div class="header-colors"></div>
             <div class="container-fluid text-right">
-              <!-- SI NON CONNECTE -->
-              <a class="btn btn-success" href="suscribe.php">Inscription</a>
-              
-              <!-- SI CONNECTE
+              <?php if (isset($user)):?>
               <a class="uiProfile nodeco" href="https://www.facebook.com/mangoberry?ref=tn_tnmn" title="Profil">
                 <img class="uiProfilePhoto" width="32" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/48769_770534613_1336862317_q.jpg" alt="">
                 <span class="lien uiName nodeco">Steffi Rakotozafy</span>
               </a>
-              -->
+              <?php else: ?>
+              <a class="btn btn-success" href="suscribe.php">Inscription</a>
+              <?php endif;?>
             </div>
         </div>
         <div id="main" class="container-fluid">
@@ -131,11 +130,11 @@ class Template {
               <?php if ($showMenu): ?>
               <div class="menu box">
                 <ul class="nav nav-pills">
-                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "accueil") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Accueil</a></li>
-                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "profil") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Profil</a></li>
-                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "activities") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Activités</a></li>
-                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "membres") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Membres</a></li>
-                  <li <?php print stripos($_SERVER['SCRIPT_NAME'], "questions") ? 'class="selected"' : '' ?>><a href="" class="nodeco">Questions</a></li>
+                  <li <?=stripos($_SERVER['SCRIPT_NAME'], "accueil") ? 'class="selected"' : '' ?>><a href="<?=$this->asLink("accueil")?>" class="nodeco">Accueil</a></li>
+                  <li <?=stripos($_SERVER['SCRIPT_NAME'], "profil") ? 'class="selected"' : '' ?>><a href="<?=$this->asLink("profil")?>" class="nodeco">Profil</a></li>
+                  <li <?=stripos($_SERVER['SCRIPT_NAME'], "activities") ? 'class="selected"' : '' ?>><a href="<?=$this->asLink("activities")?>" class="nodeco">Activités</a></li>
+                  <li <?=stripos($_SERVER['SCRIPT_NAME'], "membres") ? 'class="selected"' : '' ?>><a href="<?=$this->asLink("membres")?>" class="nodeco">Membres</a></li>
+                  <li <?=stripos($_SERVER['SCRIPT_NAME'], "questions") ? 'class="selected"' : '' ?>><a href="<?=$this->asLink("questions")?>" class="nodeco">Questions</a></li>
                 </ul>
               </div>
               <?php endif; ?>
