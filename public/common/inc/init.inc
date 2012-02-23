@@ -38,10 +38,13 @@ ActiveRecord\Config::initialize(function($cfg) use ($connections) {
 $res = Template::instance('template');
 session_name('LBI');
 session_start();
-if (isset($_SESSION['user']))
+if (isset($_SESSION['user'])){
     $user = $_SESSION['user'];
+    $res->user = $user;
+}
 else{
   if (!stripos($_SERVER['SCRIPT_NAME'], "index.php")) {
+    $res->user = null;
     $res->load('index', array("signin" => 1));
   }
 }
