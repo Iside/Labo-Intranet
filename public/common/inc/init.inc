@@ -1,5 +1,9 @@
 <?php
 // <editor-fold defaultstate="collapsed" desc="set global variable">
+
+/*
+ * Basculer sur production avant passage en prod de ce fichier
+ */
 define('Environment', 'production');
 //define('Environment', 'development');
 Environment == 'development' ? define("SITE_PATH", '/public/') : define("SITE_PATH", '/');
@@ -30,8 +34,6 @@ ActiveRecord\Config::initialize(function($cfg) use ($connections) {
             $cfg->set_model_directory('../common/inc/models');
             $cfg->set_connections($connections);
             $cfg->set_date_format("Y-m-d H:i:s");
-
-# A fixer sur production lorsque le projet sera termine
             $cfg->set_default_connection(Environment);
         });
 

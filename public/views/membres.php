@@ -25,23 +25,28 @@
                       
                       <thead>
                         <tr>
-                          <th class="name">Nom de l'évènement</th>
+                          <th class="image"></th>
                           <th class="members">Membres</th>
-                          <th class="status">Status</th>
-                          <th class="activity">Activité</th>
+                          <th class="suscribed_at">Inscrit depuis...</th>
+                          <th class="status">Rang</th>
+                          <th class="activity">En ce moment...</th>
                         </tr>
                       </thead>
                       
                       <tbody>
+                        <?foreach (User::all() as $membre):?>
                         <tr>
                           <td class="image"><img src="http://dummyimage.com/32x32/3a6dc4/ffffff.jpg" width="32" height="32" /></td>
-                          <td class="name"><a href="profil.html">Steffi Rakotozafy</a></td>
+                          <td class="members"><a href="profil.html"><?=$membre->id?></a></td>
+                          <td class="suscribed_at"><?=$membre->created_at->format('d - m - Y'); ?></td>
                           <td class="points">100</td>
                           <td class="projets">Projet d'excellence</td>
                           <td class="link"><a href="profil.html">Voir</a></td>
                         </tr>
+                        <?endforeach;?>
                       </tbody>
                     </table>
+                    <?if(User::count() > 10) : ?>
                     <div class="pagination">
                       <ul>
                         <li><a href="#">Précédent</a></li>
@@ -58,6 +63,7 @@
                         <li><a href="#">Suivant</a></li>
                       </ul>
                     </div>
+                    <?endif;?>
                   </div>
                 </div>
               </div>
