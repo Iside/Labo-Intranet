@@ -4,8 +4,8 @@
 /*
  * Basculer sur production avant passage en prod de ce fichier
  */
-define('Environment', 'production');
-//define('Environment', 'development');
+//define('Environment', 'production');
+define('Environment', 'development');
 Environment == 'development' ? define("SITE_PATH", '/public/') : define("SITE_PATH", '/');
 define("SYS_PATH", '../common/inc/');
 define("VIEW_PATH", '../views');
@@ -45,7 +45,7 @@ if (isset($_SESSION['user'])){
     $res->user = $user;
 }
 else{
-  if (!stripos($_SERVER['SCRIPT_NAME'], "index.php")) {
+  if (!stripos($_SERVER['SCRIPT_NAME'], "index.php") && !stripos($_SERVER['SCRIPT_NAME'], "suscribe.php")) {
     $res->user = null;
     $res->load('index', array("signin" => 1));
   }

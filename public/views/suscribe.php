@@ -2,7 +2,7 @@
             <div class="span4">&nbsp;</div>
             <div class="span4">
               <div class="wear form-login form-register box rounded-border row show-grid">
-                <div class="title"><i class="icon-lock"></i> <strong>Inscrivez-vous</strong> au Laboratoire Cisco !</div>
+                <div class="title"><i class="icon-lock"></i> <strong>Inscrivez-vous</strong> <?=Company::first()->sexe > 0 ? "à la" : "au"?>&nbsp;<?=Company::first()->name?> !</div>
                 <form class="form-search nomargin" method="POST">
                   <input type="text" class="input-small" name="id" placeholder="ID Booster">
                   <input type="password" class="input-small" name="password" placeholder="Mot de passe">
