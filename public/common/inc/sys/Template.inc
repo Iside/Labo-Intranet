@@ -109,10 +109,10 @@ class Template {
         <div id="header">
             <div class="header-colors"></div>
             <div class="container-fluid text-right">
-              <?php if (isset($user)):?>
+              <?php if (isset($this->user)):?>
               <a class="uiProfile nodeco" href="https://www.facebook.com/mangoberry?ref=tn_tnmn" title="Profil">
                 <img class="uiProfilePhoto" width="32" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/48769_770534613_1336862317_q.jpg" alt="">
-                <span class="lien uiName nodeco">Steffi Rakotozafy</span>
+                <span class="lien uiName nodeco"><?=$this->user->id?></span>
               </a>
               <?php else: ?>
               <a class="btn btn-success" href="suscribe.php">Inscription</a>
