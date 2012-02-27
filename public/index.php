@@ -1,5 +1,5 @@
 <?php
-include 'common/inc/init.inc';
+include 'inc/init.inc';
 if (isset($user) && $user->keep_connection != 0) {
   session_start();
   session_unset();
