@@ -1,4 +1,5 @@
-<?php include '../common/inc/init.inc';
-if(!isset($user) OR $user->name != "invite")
+<?php include '../inc/init.inc';
+if(!isset($user))
     $res->load('signin.php');
+$res->useTemplate('Mon Profil')
 ?>

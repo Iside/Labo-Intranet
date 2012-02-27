@@ -10,8 +10,7 @@ Environment == 'development' ? define("SITE_PATH", '/public/') : define("SITE_PA
 define("SYS_PATH", '../inc/');
 define("VIEW_PATH", '../views/');
 define("LOAD_PATH", '../load/');
-define("WP_INC_PATH", '../blog/wp_includes/');
-define("IMG_PATH", '../img/');
+define("IMG_PATH", '../common/img/');
 define("MODEL_PATH", '../inc/models');
 define("SNIPPET_PATH", '../inc/snippets/');
 define("SiteName", 'Intranet');
