@@ -7,23 +7,25 @@
 define('Environment', 'production');
 //define('Environment', 'development');
 Environment == 'development' ? define("SITE_PATH", '/public/') : define("SITE_PATH", '/');
-define("SYS_PATH", '../common/inc/');
-define("VIEW_PATH", '../views');
-define("LOAD_PATH", '../load');
+define("SYS_PATH", '../inc/');
+define("VIEW_PATH", '../views/');
+define("LOAD_PATH", '../load/');
 define("WP_INC_PATH", '../blog/wp_includes/');
-define("IMG_PATH", '../common/img/');
-define("MODEL_PATH", '../common/inc/models');
+define("IMG_PATH", '../img/');
+define("MODEL_PATH", '../inc/models');
+define("SNIPPET_PATH", '../inc/snippets/');
 define("SiteName", 'Intranet');
-define("JS_PATH", '../common/js');
-define("CSS_PATH", '../common/css');
+define("JS_PATH", '../common/js/');
+define("CSS_PATH", '../common/css/');
 setlocale(LC_ALL, 'fr_FR');
 if (strtolower($_SERVER['REQUEST_URI']) == strtolower(SITE_PATH))
     header("location:" . SITE_PATH . 'load');
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="inclusion des classes de models">
-require_once '../common/inc/ActiveRecord.inc';
-require_once '../common/inc/sys/Dir.inc';
-require_once '../common/inc/sys/Template.inc';
+require_once '../inc/ActiveRecord.inc';
+require_once '../inc/sys/Dir.inc';
+require_once '../inc/sys/Template.inc';
+require_once '../inc/sys/Snippet.inc';
 
 $connections = array(
     'development' => 'mysql://root:test@localhost/dev_intranet?charset="utf8',
@@ -31,13 +33,14 @@ $connections = array(
 );
 
 ActiveRecord\Config::initialize(function($cfg) use ($connections) {
-            $cfg->set_model_directory('../common/inc/models');
+            $cfg->set_model_directory('../inc/models');
             $cfg->set_connections($connections);
             $cfg->set_date_format("Y-m-d H:i:s");
             $cfg->set_default_connection(Environment);
         });
 
 $res = Template::instance('template');
+$res->widget = $widget = Snippet::instance('snippet');;
 session_name('LBI');
 session_start();
 if (isset($_SESSION['user'])){

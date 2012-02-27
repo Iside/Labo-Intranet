@@ -1,3 +1,4 @@
 <?php
-include '../common/inc/init.inc';
-$res->useTemplate();
+include '../inc/init.inc';
+$res->useTemplate("Liste des activités");
+?>

@@ -1,7 +1,9 @@
 <?php
 //Connection Page
-   mysql_connect( "a.db.shared.orchestra.io", "user_f657b901", "IdZ&)t%az^mqEF") or die("Could not connect");
-   mysql_select_db ("db_f657b901")or die('Cannot connect to the database because: ' . mysql_error());
+   //mysql_connect( "a.db.shared.orchestra.io", "user_f657b901", "IdZ&)t%az^mqEF") or die("Could not connect");
+   mysql_connect( "localhost", "root", "test") or die("Could not connect");
+//   mysql_select_db ("db_f657b901")or die('Cannot connect to the database because: ' . mysql_error());
+   mysql_select_db ("dev_intranet")or die('Cannot connect to the database because: ' . mysql_error());
 //functions
 function checkVar($var)
 {

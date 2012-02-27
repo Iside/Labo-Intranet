@@ -1,3 +1,5 @@
+<div class="span9">
+<?=$widget->load("menu")?>
 <div class="box padding15">
                 <div class="row-fluid">
                     <form class="form-search nomargin">
@@ -14,8 +16,7 @@
                       <button type="submit" class="btn" style="margin-left: 10px"><i class="icon-search"></i> Rechercher</button>
                     </form>
                  </div>
-              </div>
- 
+              </div> 
               <div class="box padding30">
                 <div class="row-fluid">
                   <div class="span12">
@@ -46,24 +47,9 @@
                         <?endforeach;?>
                       </tbody>
                     </table>
-                    <?if(User::count() > 10) : ?>
-                    <div class="pagination">
-                      <ul>
-                        <li><a href="#">Précédent</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">10</a></li>
-                        <li><a href="#">Suivant</a></li>
-                      </ul>
-                    </div>
-                    <?endif;?>
+                    <?=$widget->load("pagination")?>
                   </div>
                 </div>
               </div>
+</div>
+<?=$widget->load("talk")?>

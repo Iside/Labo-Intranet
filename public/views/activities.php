@@ -1,4 +1,5 @@
-              <div class="box">
+<div class="span9"
+<div class="box">
                 <div id="activite-header" class="row-fluid" style="">
                   <div class="span9"><img src="http://dummyimage.com/680x151/3a6dc4/ffffff.jpg"></div>
                   <div class="span">
@@ -100,5 +101,3 @@
                   <div class="span2"></div>
                 </div>
               </div>
-                            
-            </div>

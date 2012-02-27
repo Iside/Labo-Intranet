@@ -1,5 +1,5 @@
 <?php
-include '../common/inc/init.inc';
+include '../inc/init.inc';
 $result = "Veuillez remplir toutes les informations demandées";
 if (isset($_POST['captcha']) && isset($_POST['vcaptcha'])) {
     if (md5($_POST['captcha']) == $_POST['vcaptcha']) {
