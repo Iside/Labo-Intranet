@@ -1,5 +1,5 @@
 <!-- CONNEXION -->
-            <div class="span3">&nbsp;</div>
+<div class="span3">&nbsp;</div>
             <div class="span6">
               <div class="wear form-login box rounded-border row show-grid">
                 <form class="form-search nomargin" method="POST">
@@ -9,5 +9,5 @@
                 </form>           
               </div>  
             </div>
-            <div class="span3">&nbsp;</div>
+<div class="span3">&nbsp;</div>
             <!-- FIN CONNEXION -->

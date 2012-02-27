@@ -77,6 +77,9 @@ class Template {
   }
 
   function Begin($title='Home', $layout=true, $showMenu=True, $infos="") {
+    /*ajouter ici les templates qui font changer la class main...*/
+    $full = stripos($_SERVER['SCRIPT_NAME'], "index");
+    $full = $full > 0 ? $full : stripos($_SERVER['SCRIPT_NAME'], "suscribe");
     ?>
 <!DOCTYPE html>
 <html>
@@ -86,10 +89,12 @@ class Template {
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     
     <!-- Le styles -->
+        <link rel="stylesheet" type="text/css" href="<?=CSS_PATH?>style.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<?=CSS_PATH?>bootstrap.css" media="screen" />
         <?
         if ($layout) {
-          Dir::IncludeDirectory(CSS_PATH, 'css');
-          Dir::IncludeDirectory(JS_PATH, 'js');
+//          Dir::IncludeDirectory(CSS_PATH, 'css');
+//          Dir::IncludeDirectory(JS_PATH, 'js');
         }
         ?>
   </head>
@@ -107,7 +112,7 @@ class Template {
       <div id="content">
         <div id="header">
             <div class="header-colors"></div>
-            <div class="container-fluid text-right">
+            <div class="full text-right">
               <?if (isset($this->user)):?>
               <a class="uiProfile nodeco" href="https://www.facebook.com/mangoberry?ref=tn_tnmn" title="Profil">
                 <img class="uiProfilePhoto" width="32" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/48769_770534613_1336862317_q.jpg" alt="">
@@ -118,13 +123,11 @@ class Template {
               <?endif;?>
             </div>
         </div>
-        <div id="main" class="container-fluid">
+        <div id="main" class="<?=$full>0 ? "full" : "container-fluid"?>">
           <?                    if ($infos!=""):?>
                       <div class="alert alert-info"><strong>Attention!</strong> <?=$infos?></div>
           <?endif;?>
-          
-          <div id="main-wrapper" class="row-fluid show-grid">
-            <div class="span9">
+          <div id="main-wrapper" class="row show-grid">
             <!-- CONNEXION -->
               <?if ($showMenu): ?>
               <div class="menu box">
@@ -142,6 +145,7 @@ class Template {
 
         function Close($showChat=true) {?>
         </div>
+            <div class="span3">&nbsp;</div>
           <? if ($showChat):?>
                       <div class="span3">
               <div id="chat" class="well nopadding">
