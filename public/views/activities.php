@@ -1,5 +1,5 @@
 <div class="span9">
-              <?=$widget->load("menu")?>
+              <?$res->get("menu")?>
               <!--<div id="activite-header" class="row-fluid" style="position: relative">
                   <img src="img/map.jpg" />
                   <div style="position: absolute;top: 15px;right: 15px;width: 170px;">
@@ -80,10 +80,8 @@
                     </tr>
                   </tbody>
                 </table>
-                <?=$widget->load("pagination")?>
+                <?$res->get("pagination")?>
               </div>
-
-              
               <div class="box padding30 nopaddingtop">
                 <div class="page-header">
                     <h3>A venir <small></small></h3>

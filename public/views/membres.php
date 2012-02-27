@@ -1,5 +1,5 @@
 <div class="span9">
-<?=$widget->load("menu")?>
+<?$res->get('menu')?>
 <div class="box padding15">
                 <div class="row-fluid">
                     <form class="form-search nomargin">
@@ -47,7 +47,7 @@
                         <?endforeach;?>
                       </tbody>
                     </table>
-                    <?=$widget->load("pagination")?>
+                    <?$res->get("pagination")?>
                   </div>
                 </div>
               </div>

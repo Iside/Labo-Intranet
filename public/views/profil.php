@@ -1,5 +1,5 @@
             <div class="span9">
-              <?=$widget->load("menu")?>
+              <?$res->get("menu")?>
               <div id="user-profil" class="box padding15">
                 <div class="row-fluid">
                 <div class="span12">

@@ -1,5 +1,5 @@
 <div class="span9">
-              <?=$widget->load("menu")?>
+              <?$res->get("menu")?>
               
               <div id="question" class="row-fluid">
 
